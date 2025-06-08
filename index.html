@@ -1,121 +1,164 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Трава для котів — Щастя в горщику!</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: "Segoe UI", sans-serif;
-      background: #f6f8f9;
-      color: #333;
-      text-align: center;
-    }
-    header {
-      background: #c1f2b0;
-      padding: 2rem 1rem;
-    }
-    h1 {
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
-    }
-    p {
-      font-size: 1.1rem;
-    }
-    .hero-image {
-      width: 100%;
-      height: 250px;
-      background: url('https://placekitten.com/800/300') center/cover no-repeat;
-      margin: 2rem 0;
-    }
-    section {
-      padding: 1.5rem 1rem;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .buy-btn {
-      background: #2ecc71;
-      color: white;
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      margin-top: 1.5rem;
-      transition: background 0.3s ease;
-    }
-    .buy-btn:hover {
-      background: #27ae60;
-    }
-    footer {
-      background: #e0e0e0;
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: #666;
-    }
-    form {
-      margin-top: 2rem;
-    }
-    input {
-      padding: 0.8rem;
-      font-size: 1rem;
-      margin-bottom: 1rem;
-      width: 90%;
-      max-width: 400px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Трава для котов - Овёс и Ячмень</title>
+<style>
+  /* Общие стили и минимализм */
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0; padding: 0;
+    background: #f5fdf7;
+    color: #2c3e50;
+  }
+  .container {
+    max-width: 480px;
+    margin: auto;
+    padding: 20px;
+  }
+  h1 {
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  p {
+    font-size: 1rem;
+    line-height: 1.4;
+    text-align: center;
+    margin: 0 0 30px;
+  }
+  button {
+    display: block;
+    margin: 20px auto 40px;
+    padding: 15px 40px;
+    background: #58d68d;
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(88,214,141,0.4);
+    transition: background 0.3s ease;
+  }
+  button:hover {
+    background: #45b06a;
+  }
 
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 1.7rem;
-      }
-      .hero-image {
-        height: 180px;
-      }
-      .buy-btn {
-        width: 90%;
-        font-size: 1rem;
-      }
+  /* Цветные блоки */
+  .block {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 20px;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s forwards;
+  }
+  .block:nth-child(1) { animation-delay: 0.2s; }
+  .block:nth-child(2) { animation-delay: 0.4s; }
+  .block:nth-child(3) { animation-delay: 0.6s; }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
-  </style>
+  }
+
+  /* SVG стили */
+  svg {
+    display: block;
+    margin: 0 auto 15px;
+    width: 80px;
+    height: 80px;
+    fill: #58d68d;
+  }
+
+  /* Блок видео */
+  .video-block {
+    position: relative;
+    background: #e0f7e7;
+    border-radius: 16px;
+    padding: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .video-placeholder {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 aspect ratio */
+    background: #a4d6a7;
+    border-radius: 12px;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .video-placeholder::after {
+    content: "▶";
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    color: white;
+    opacity: 0.8;
+  }
+  .video-placeholder iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 12px;
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h1>Щастя в горщику 🌱</h1>
-    <p>Свіжа трава овесу та ячменю для вашого пухнастого друга</p>
-  </header>
+  <div class="container">
+    <h1>Трава для котов</h1>
+    <p>Овёс и ячмень — натуральные лакомства для вашего пушистого друга!</p>
 
-  <div class="hero-image"></div>
+    <div class="block">
+      <!-- Иконка кота -->
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <path d="M32 2c-6 0-11 5-11 11 0 7 7 16 11 16s11-9 11-16c0-6-5-11-11-11zM14 56c0-9 14-12 18-12s18 3 18 12v6H14v-6z"/>
+      </svg>
+      <h2>Натуральный овёс</h2>
+      <p>Свежий и полезный овёс для здоровья и настроения вашего кота.</p>
+    </div>
 
-  <section>
-    <h2>Навіщо коту трава?</h2>
-    <p>Коти обожнюють свіже зелене! Вона допомагає травленню, виводить шерсть і просто радує мурчика.</p>
-  </section>
+    <div class="block">
+      <!-- Иконка травы -->
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <path d="M32 2c-7 12-10 26-10 34h20c0-8-3-22-10-34zM12 58h40v4H12z"/>
+      </svg>
+      <h2>Полезный ячмень</h2>
+      <p>Ячмень, выращенный без химии — безопасность гарантируем.</p>
+    </div>
 
-  <section>
-    <h2>Що всередині?</h2>
-    <p>Ми вирощуємо 100% натуральний <strong>овес</strong> і <strong>ячмінь</strong> без хімії. Тільки горщик, зерно, вода — і любов 😻</p>
-  </section>
+    <div class="block">
+      <!-- Иконка доставки -->
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 40h56v8H2zM8 48l8 6v-6h40v-4H16v-6l-8 6z"/>
+      </svg>
+      <h2>Доставка по Украине</h2>
+      <p>Новая Почта и Укрпочта — быстро и удобно.</p>
+    </div>
 
-  <section>
-    <h2>Як замовити?</h2>
-    <p>Надсилаємо по Україні <strong>Новою поштою</strong> або <strong>Укрпоштою</strong>.<br>Оплата онлайн через Portmone або при отриманні.</p>
+    <button onclick="alert('Спасибо за покупку! Мы свяжемся с вами.')">Купить сейчас</button>
 
-    <form method="POST" action="https://www.portmone.com.ua/gateway/" target="_blank">
-      <input type="hidden" name="payee_id" value="YOUR_MERCHANT_ID">
-      <input type="hidden" name="shop_order_number" value="ORDER12345">
-      <input type="hidden" name="bill_amount" value="150">
-      <input type="hidden" name="description" value="Трава для кота">
-      <input type="hidden" name="success_url" value="https://your-site.com/success.html">
-      <input type="hidden" name="failure_url" value="https://your-site.com/failure.html">
-      <button type="submit" class="buy-btn">Купити за 150 грн</button>
-    </form>
-  </section>
+    <div class="video-block">
+      <h2>Видео: Как растёт трава для котов</h2>
+      <div class="video-placeholder" id="video-placeholder"></div>
+    </div>
+  </div>
 
-  <footer>
-    <p>© 2025 Щастя в горщику. Мяу! 🐾<br>Контакти: <a href="mailto:catgrass@example.com">catgrass@example.com</a></p>
-  </footer>
+  <script>
+    // При клике по плейсхолдеру подставляем видео YouTube
+    document.getElementById('video-placeholder').onclick = function() {
+      this.innerHTML = '<iframe src="https://www.youtube.com/embed/72fDgcqQW7k?autoplay=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+    }
+  </script>
 </body>
 </html>
