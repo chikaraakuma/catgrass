@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Трава для котов - Овёс и Ячмень</title>
+<title>Трава для котів - Овес і Ячмінь</title>
 <style>
-  /* Общие стили и минимализм */
   body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     margin: 0; padding: 0;
@@ -45,8 +44,6 @@
   button:hover {
     background: #45b06a;
   }
-
-  /* Цветные блоки */
   .block {
     background: white;
     border-radius: 16px;
@@ -60,15 +57,12 @@
   .block:nth-child(1) { animation-delay: 0.2s; }
   .block:nth-child(2) { animation-delay: 0.4s; }
   .block:nth-child(3) { animation-delay: 0.6s; }
-
   @keyframes fadeInUp {
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
-
-  /* SVG стили */
   svg {
     display: block;
     margin: 0 auto 15px;
@@ -76,8 +70,6 @@
     height: 80px;
     fill: #58d68d;
   }
-
-  /* Блок видео */
   .video-block {
     position: relative;
     background: #e0f7e7;
@@ -89,7 +81,7 @@
   .video-placeholder {
     position: relative;
     width: 100%;
-    padding-top: 56.25%; /* 16:9 aspect ratio */
+    padding-top: 56.25%;
     background: #a4d6a7;
     border-radius: 12px;
     cursor: pointer;
@@ -112,53 +104,144 @@
     border: none;
     border-radius: 12px;
   }
+
+  /* Форма замовлення */
+  form {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  input[type="text"],
+  input[type="tel"],
+  select,
+  input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  .total-price {
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #27ae60;
+  }
 </style>
 </head>
 <body>
   <div class="container">
-    <h1>Трава для котов</h1>
-    <p>Овёс и ячмень — натуральные лакомства для вашего пушистого друга!</p>
+    <h1>Трава для котів</h1>
+    <p>Овес і ячмінь — натуральні ласощі для вашого пухнастого друга!</p>
 
     <div class="block">
-      <!-- Иконка кота -->
       <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
         <path d="M32 2c-6 0-11 5-11 11 0 7 7 16 11 16s11-9 11-16c0-6-5-11-11-11zM14 56c0-9 14-12 18-12s18 3 18 12v6H14v-6z"/>
       </svg>
-      <h2>Натуральный овёс</h2>
-      <p>Свежий и полезный овёс для здоровья и настроения вашего кота.</p>
+      <h2>Натуральний овес</h2>
+      <p>Свіжий і корисний овес для здоров’я і настрою вашого кота.</p>
     </div>
 
     <div class="block">
-      <!-- Иконка травы -->
       <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
         <path d="M32 2c-7 12-10 26-10 34h20c0-8-3-22-10-34zM12 58h40v4H12z"/>
       </svg>
-      <h2>Полезный ячмень</h2>
-      <p>Ячмень, выращенный без химии — безопасность гарантируем.</p>
+      <h2>Корисний ячмінь</h2>
+      <p>Ячмінь, вирощений без хімії — безпека гарантована.</p>
     </div>
 
     <div class="block">
-      <!-- Иконка доставки -->
       <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
         <path d="M2 40h56v8H2zM8 48l8 6v-6h40v-4H16v-6l-8 6z"/>
       </svg>
-      <h2>Доставка по Украине</h2>
-      <p>Новая Почта и Укрпочта — быстро и удобно.</p>
+      <h2>Доставка по Україні</h2>
+      <p>Нова Пошта і Укрпошта — швидко і зручно.</p>
     </div>
 
-    <button onclick="alert('Спасибо за покупку! Мы свяжемся с вами.')">Купить сейчас</button>
+    <form id="orderForm">
+      <h2>Форма замовлення</h2>
+
+      <label for="fullname">ПІБ *</label>
+      <input type="text" id="fullname" name="fullname" required placeholder="Введіть повне ім'я" />
+
+      <label for="phone">Телефон *</label>
+      <input type="tel" id="phone" name="phone" required placeholder="+38 (___) ___-__-__" pattern="^\+?[\d\s\-()]{7,}$" />
+
+      <label for="np-branch">Відділення Нової Пошти *</label>
+      <input type="text" id="np-branch" name="np-branch" required placeholder="Номер або назва відділення" />
+
+      <label for="quantity">Кількість упаковок (9*13 см) *</label>
+      <input type="number" id="quantity" name="quantity" min="1" value="1" required />
+
+      <div class="total-price" id="totalPrice">Всього: 250 грн</div>
+
+      <button type="submit">Замовити зараз</button>
+    </form>
 
     <div class="video-block">
-      <h2>Видео: Как растёт трава для котов</h2>
+      <h2>Відео: Як росте трава для котів</h2>
       <div class="video-placeholder" id="video-placeholder"></div>
     </div>
   </div>
 
-  <script>
-    // При клике по плейсхолдеру подставляем видео YouTube
-    document.getElementById('video-placeholder').onclick = function() {
-      this.innerHTML = '<iframe src="https://www.youtube.com/embed/72fDgcqQW7k?autoplay=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+<script>
+  // Відео по кліку
+  document.getElementById('video-placeholder').onclick = function() {
+    this.innerHTML = '<iframe src="https://www.youtube.com/embed/72fDgcqQW7k?autoplay=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+  };
+
+  // Обрахунок ціни
+  const pricePerPack = 250;
+  const quantityInput = document.getElementById('quantity');
+  const totalPrice = document.getElementById('totalPrice');
+
+  quantityInput.addEventListener('input', () => {
+    let qty = parseInt(quantityInput.value);
+    if (isNaN(qty) || qty < 1) qty = 1;
+    totalPrice.textContent = `Всього: ${qty * pricePerPack} грн`;
+  });
+
+  // Обробка форми
+  document.getElementById('orderForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    if (!this.checkValidity()) {
+      alert('Будь ласка, заповніть усі обов\'язкові поля правильно.');
+      return;
     }
-  </script>
+
+    const fullname = this.fullname.value.trim();
+    const phone = this.phone.value.trim();
+    const branch = this['np-branch'].value.trim();
+    const quantity = parseInt(this.quantity.value);
+
+    if (quantity < 1) {
+      alert('Кількість упаковок має бути не менше 1.');
+      return;
+    }
+
+    alert(`Дякуємо за замовлення, ${fullname}!\nТелефон: ${phone}\nВідділення НП: ${branch}\nКількість: ${quantity} упаковок\nЗагальна сума: ${quantity * pricePerPack} грн\n\nМи з Вами зв’яжемося найближчим часом.`);
+    this.reset();
+    totalPrice.textContent = `Всього: ${pricePerPack} грн`;
+  });
+</script>
 </body>
 </html>
